@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: 'Chewy', cursive;
+  background-color: #add8e6; /* Light blue background */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Blue hearts overlay */
+body::before, body::after {
+  content: "💙";
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(0,102,204,0.4);
+  animation: floatBlueHearts 15s infinite linear;
+}
+body::before { left: 15%; animation-delay: 0s; }
+body::after { left: 75%; animation-delay: 7s; }
+
+@keyframes floatBlueHearts {
+  0% { transform: translateY(100vh) scale(0.8); opacity: 0.2; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* Scenes */
+.scene { 
+  display: none; 
+  text-align: center; 
+  padding: 160px 20px 50px 20px; 
+  color: #0d47a1; 
+  position: relative;
+}
+.scene.active { display: block; }
+
+/* Titles and messages with white outline */
+h1, p {
+  color: #0d47a1;
+  text-shadow: 
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+}
+
+h1 { font-family: 'Chewy', cursive; font-size: 3rem; margin-bottom: 25px; }
+p { font-size: 1.5rem; max-width: 750px; margin: 0 auto 25px auto; line-height: 1.6; }
+
+.photo { width: 250px; max-width: 80%; margin-top: 20px; display:block; margin-left:auto;margin-right:auto; opacity:0; animation: fadeIn 1s forwards; }
+
+.large-photo {
+  width: 400px;  /* bigger images for climbing & games scenes */
+  max-width: 90%;
+}
+
+button { padding: 12px 25px; cursor: pointer; font-size:1.2rem; }
+
+.youtube-player{position:absolute;width:0;height:0;overflow:hidden;}
+
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
